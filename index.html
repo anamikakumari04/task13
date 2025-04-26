@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Programs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ff7e5f;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #333;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #ff7e5f;
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Program Outputs</h2>
+
+  <div class="container">
+    <div class="card" id="q1"></div>
+    <div class="card" id="q2"></div>
+    <div class="card" id="q3"></div>
+    <div class="card" id="q4"></div>
+    <div class="card" id="q5"></div>
+  </div>
+
+  <script>
+    // 1. Print name and address
+    let name = "Anamika Kumari";
+    let address = "Balushahi, Sitamarhi, Bihar, India";
+    document.getElementById("q1").innerHTML = `<strong>1. Name:</strong><p>${name}</p><strong>Address:</strong><p>${address}</p>`;
+
+    // 2. Check if value and data-type are same
+    let var1 = 100;
+    let var2 = "100";
+    let result2 = (var1 === var2);
+    document.getElementById("q2").innerHTML = `<strong>2. Are value and type same?</strong><p>${result2}</p>`;
+
+    // 3. Add two strings and return them in all caps
+    let str1 = "hello";
+    let str2 = "India";
+    let result3 = (str1 + str2).toUpperCase();
+    document.getElementById("q3").innerHTML = `<strong>3. Combined string in uppercase:</strong><p>${result3}</p>`;
+
+    // 4. Convert string length to bytes
+    function getByteLength(str) {
+      return new TextEncoder().encode(str).length;
+    }
+    let inputStr = "Hello, world!";
+    let result4 = getByteLength(inputStr);
+    document.getElementById("q4").innerHTML = `<strong>4. Byte length of "${inputStr}":</strong><p>${result4} bytes</p>`;
+
+    // 5. Round a number to specific digits
+    function roundToDigits(num, digits) {
+      return Number(num.toFixed(digits));
+    }
+    let num = 3.14159265;
+    let digits = 3;
+    let result5 = roundToDigits(num, digits);
+    document.getElementById("q5").innerHTML = `<strong>5. Rounded number (to ${digits} digits):</strong><p>${result5}</p>`;
+  </script>
+
+</body>
+</html>
